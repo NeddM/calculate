@@ -16,6 +16,4 @@ M.setup = function()
   vim.api.nvim_command("command! Evaluate lua require('evaluate').evaluate()")
 end
 
-M.setup()
-
 return M
