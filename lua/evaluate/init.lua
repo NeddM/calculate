@@ -1,4 +1,5 @@
 local M = {}
+vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
 
 M.evaluate = function()
   vim.ui.input({ prompt = "Type the math operation: " }, function(operation)
@@ -13,8 +14,7 @@ M.evaluate = function()
 end
 
 M.setup = function()
-  require("evaluate")
-  vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
+  require("evaluate").evaluate()
 end
 
 M.setup()
