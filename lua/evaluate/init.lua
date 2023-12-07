@@ -1,7 +1,20 @@
 local M = {}
-vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
+-- vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
 
-M.evaluate = function()
+-- M.evaluate = function()
+--   vim.ui.input({ prompt = "Type the math operation: " }, function(operation)
+--     local success, result = pcall(vim.fn.eval, operation)
+--     if success then
+--       print(" = " .. result)
+--     else
+--       print("Error evaluating operation: " .. result)
+--       vim.notify("Error: " .. result, "error")
+--     end
+--   end)
+-- end
+
+
+vim.api.nvim_create_autocmd("Evaluate", {
   vim.ui.input({ prompt = "Type the math operation: " }, function(operation)
     local success, result = pcall(vim.fn.eval, operation)
     if success then
@@ -11,13 +24,7 @@ M.evaluate = function()
       vim.notify("Error: " .. result, "error")
     end
   end)
-end
-
-M.setup = function()
-  require("evaluate").evaluate()
-end
-
-M.setup()
+})
 
 
 
