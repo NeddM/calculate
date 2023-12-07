@@ -1,7 +1,5 @@
 local M = {}
 
-vim.cmd('autocmd VimEnter * lua require("evaluate").evaluate()')
-
 M.evaluate = function()
   vim.ui.input({ prompt = "Type the math operation: " }, function(operation)
     local success, result = pcall(vim.fn.eval, operation)
@@ -14,6 +12,7 @@ M.evaluate = function()
   end)
 end
 
+vim.cmd('autocmd VimEnter * lua require("evaluate").evaluate()')
 vim.cmd([[command! -nargs=0 Evaluate lua require('evaluate').evaluate()]])
 
 return M
