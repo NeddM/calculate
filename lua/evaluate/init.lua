@@ -12,10 +12,8 @@ M.evaluate = function()
   end)
 end
 
-vim.cmd([[command! -nargs=0 Evaluate lua require('evaluate').run_evaluation()]]) -- Cambiado el nombre de la función
+vim.cmd('lua require("evaluate").evaluate()')
 
-function M.run_evaluation()
-  M.evaluate()
-end
+vim.cmd([[command! -nargs=0 Evaluate lua require('evaluate').evaluate()]])
 
 return M
