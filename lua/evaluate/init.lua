@@ -12,14 +12,14 @@ M.evaluate = function()
   end)
 end
 
--- M.setup = function()
---   require("evaluate")
--- end
-
--- M.setup()
-if vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']]) then
-  M.evaluate()
+M.setup = function()
+  require("evaluate")
+  vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
 end
+
+M.setup()
+
+
 
 
 return M
