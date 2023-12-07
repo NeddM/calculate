@@ -12,7 +12,10 @@ M.evaluate = function()
   end)
 end
 
-vim.cmd('autocmd VimEnter * lua require("evaluate").evaluate()')
-vim.cmd([[command! -nargs=0 Evaluate lua require('evaluate').evaluate()]])
+
+M.setup = function()
+  vim.cmd([[command! -nargs=0 Evaluate 'lua require("evaluate").evaluate()']])
+end
+
 
 return M
