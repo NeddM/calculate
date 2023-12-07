@@ -13,6 +13,8 @@ M.evaluate = function()
   end)
 end
 
+M.evaluate()
+
 vim.cmd([[command! -nargs=0 Evaluate lua require('evaluate').evaluate()]])
 
 return M
